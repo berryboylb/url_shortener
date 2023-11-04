@@ -9,7 +9,7 @@ const options = {
       description: "API for ReavDev End Point Documentation",
     },
   },
-  apis: ["./src/routes/*.route.ts"],
+  apis: ["./src/routes/*.route.ts", "./src/index.ts"],
 };
 
 const specs = swaggerJsdoc(options);

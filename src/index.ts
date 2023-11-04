@@ -28,6 +28,46 @@ app.get("/", (_req: Request, res: Response) => {
   res.send("Hello from express + ts");
 });
 
+/**
+ * @swagger
+ * /{slug}:
+ *   get:
+ *     summary: Redirect.
+ *     description: Redirect to the link
+ *     tags: [Link]
+ *     parameters:
+ *       - in: path
+ *         name: slug
+ *         required: true
+ *         description: The slug of the record
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successfully found the link.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *       404:
+ *         description:  link detail not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ */
 app.get("/:slug", async (_req: Request, res: Response, next: NextFunction) => {
   const { slug } = _req.params;
   try {
