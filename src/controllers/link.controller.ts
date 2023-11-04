@@ -30,7 +30,7 @@ const exportResult = {
   },
   async find(req: Request, res: Response, next: NextFunction) {
     try {
-      const record = LinkService.find(req.body, req.query);
+      const record = await LinkService.find(req.body, req.query);
       return res.status(201).json({
         status: "Success",
         message: "Successfully shortened the link ",
